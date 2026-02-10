@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-// Simple fallback knowledge (exam-safe)
+
 const fallbackAnswers = {
   'capital city of maharashtra': 'Mumbai',
   'capital of india': 'New Delhi'
@@ -21,10 +21,9 @@ module.exports = async (question) => {
 
     if (!text) throw new Error('Empty AI response');
 
-    return text.trim().split(/\s+/)[0]; // single-word
+    return text.trim().split(/\s+/)[0]; 
 
   } catch (err) {
-    // 🔐 FALLBACK (IMPORTANT)
     const normalized = question.toLowerCase();
 
     for (const key in fallbackAnswers) {
